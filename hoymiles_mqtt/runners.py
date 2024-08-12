@@ -1,7 +1,7 @@
 """Runners."""
 import threading
 import time
-from typing import Callable, Optional
+from typing import Callable
 import logging
 
 from pymodbus import exceptions as pymodbus_exceptions
@@ -31,7 +31,6 @@ class HoymilesQueryJob:
         self._mqtt_publisher: MqttPublisher = mqtt_publisher
         self._modbus_client: HoymilesModbusTCP = modbus_client
         self._mqtt_configured: bool = False
-        self._last_reset: Optional[int] = None
 
     def execute(self):
         """Get data from DTU and publish to MQTT broker."""
